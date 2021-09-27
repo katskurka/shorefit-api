@@ -11,8 +11,17 @@ app.get('/', (request, response) => {
   response.render('index')
 })
 
+app.get('/doc', (request, response) => {
+  return response.render('doc')
+})
+
 app.get('/models', (request, response) => {
   response.send('This route will show all models of garage doors')
+})
+
+// Allows user to select a model by id
+app.get('/models:id', (request, response) => {
+  response.send('modelsById')
 })
 
 // This will select models based on material

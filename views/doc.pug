@@ -1,0 +1,98 @@
+html
+  head
+    link(rel="stylesheet" href="/style.css")
+  body
+    center
+    h1 Garage Door API Documentation 
+    p A list of the available routes for this API and their function
+    hr
+    h2 GET '/models'
+    p This GET route will return a list of all available door models
+    p Route: http://localhost:1337/models
+    p Expected Output:
+      div
+      pre
+      | [{
+      |   id: 1
+      |   model: Advantage Estate
+      |   style: Carriage House
+      |   r-value: 7
+      |   image: Image of Door
+      | }]
+    hr
+    h2 GET '/models/:id'
+    p This GET route will return a model by id
+    p Route: http://localhost:1337/models/:id
+    p Expected Output:
+      div
+      pre
+      | [{
+      |   id: 1
+      |   model: Advantage Estate
+      |   style: Carriage House
+      |   r-value: 7
+      |   material: Steel
+      |   image: Image of Door
+      | }]
+    hr
+    h2 GET '/models/:material'
+    p This GET route will select models based on desired material
+    p Route: http://localhost:1337/models/:material
+    p Expected Output:
+      div
+      pre
+      | [{
+      |   id: 1
+      |   model: Advantage Estate
+      |   style: Carriage House
+      |   r-value: 7
+      |   material: Steel
+      |   image: Image of Door
+      | }]
+    hr
+    h2 GET '/models/:style'
+    p This GET route will select models based on desired door style
+    p Route: http://localhost:1337/models/:style
+    p Expected Output:
+      div
+      pre
+      | [{
+      |   id: 1
+      |   model: Advantage Estate
+      |   style: Carriage House
+      |   r-value: 7
+      |   material: Steel
+      |   image: Image of Door
+      | }]
+    hr
+    h2 POST '/models/:material'
+    p This POST route will allow a user to submit a garage door model
+    p Route: http://localhost:1337/models
+    p Headers: content-type - application/json 
+    p Body
+      pre
+      | [{
+      |   "model": "Lancaster",
+      |   "style": "Overlay Carriage House",
+      |   "r-value":7,  
+      |   "material": "Vinyl",
+      |   "image": "Image of Door"       
+      | }]
+    p Expected Output:
+      div
+      pre
+      |[{
+      |   id: 2
+      |   model: Lancaster
+      |   style: Overlay Carriage House
+      |   r-value: 7
+      |   material: Vinyl
+      |   image: Image of Door
+      | }]
+    hr
+    h2 DELETE '/model/:id'
+    p Allows user to delete a door model by id
+    p Route: http://localhost:1337/models/:id
+    p Expected Output:
+    p "You have successfully removed the model associated with id: 1"
+

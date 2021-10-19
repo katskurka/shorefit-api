@@ -15,23 +15,32 @@ app.get('/doc', (request, response) => {
   return response.render('doc')
 })
 
-app.get('/models', (request, response) => {
-  response.send('This route will show all models of garage doors')
+app.get('/doors', (request, response) => {
+  response.send('This route will get all garage doors')
 })
 
-// Allows user to select a model by id
-app.get('/models:id', (request, response) => {
-  response.send('modelsById')
+// get doors by search term
+app.get('/doors/:searchTerm', (request, response) => {
+  response.send('searchDoors')
 })
 
-// This will select models based on material
-app.get('/models:material', (request, response) => {
-  response.send('modelsByMaterial')
+// Allows user to select a door by id
+app.get('/doors/:id', (request, response) => {
+  response.send('doorsById')
+})
+
+app.get('/doors/:model', (request, response) => {
+  response.send('doorsByModel')
+})
+
+// This will select doors based on material
+app.get('/doors/:material', (request, response) => {
+  response.send('doorsByMaterial')
 })
 
 // This will select models by style
-app.get('/models:style', (request, response) => {
-  response.send('modelsByStyle')
+app.get('/doors/:style', (request, response) => {
+  response.send('doorsByStyle')
 })
 
 // This will allow users to submit new models

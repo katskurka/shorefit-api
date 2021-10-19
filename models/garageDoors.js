@@ -1,5 +1,6 @@
-const Amarr = (connection, Sequelize) => {
-  return connection.define('amarrdoors', {
+
+const GarageDoor = (connection, Sequelize) => {
+  return connection.define('garagedoors', {
     id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
     doorModel: { type: Sequelize.STRING },
     doorStyle: { type: Sequelize.STRING },
@@ -10,4 +11,4 @@ const Amarr = (connection, Sequelize) => {
   { paranoid: true })
 }
 
-module.exports = Amarr
+module.exports = GarageDoor

@@ -1,11 +1,11 @@
 // eslint-disable-next-line no-console
 const express = require('express')
+
 const app = express()
-const bodyParser = require('body-parser')
+
+app.use(express.json())
 
 app.set('view engine', 'pug')
-app.use(bodyParser.json())
-app.use(express.static('public'))
 
 app.get('/', (request, response) => {
   response.render('index')

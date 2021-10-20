@@ -12,12 +12,8 @@ const searchDoors = async (request, response) => {
   const garagedoor = await models.GarageDoors.findAll({
     where: {
       [models.Op.or]: [
-        { id: searchTerm },
-        { doorModel: { [models.Op.like]: `%${searchTerm}%` } },
-        { doorStyle: { [models.Op.like]: `%${searchTerm}%` } },
-        { doorMaterial: { [models.Op.like]: `%${searchTerm}%` } },
-        { rValue: { [models.Op.like]: `%${searchTerm}%` } },
-        { costMeter: { [models.Op.like]: `%${searchTerm}%` } },
+        { doorModel: searchTerm },
+        { doorModel: { [models.Op.like]: `%${searchTerm}%` } }
       ]
     }
   })
@@ -47,19 +43,19 @@ const submitNewModel = async (request, response) => {
 
 const deleteDoorById = async (request, response) => {
   const { id } = request.params
-  const garagedoors = await models.GarageDoors.findOne({
+  const garagedoor = await models.GarageDoors.findOne({
     where: { id }
   })
 
-  if (!garagedoors) {
+  if (!garagedoor) {
     return response.status(400).send(`There are no models with ID of ${id}`)
   }
   try {
-    await garagedoors.destroy()
+    await garagedoor.destroy()
 
     return response.send('Model has been removed')
   } catch (error) {
-    return response.status(400).send('There has been an issue, please try again')
+    return response.status(500).send('There has been an issue, please try again')
   }
 }
 

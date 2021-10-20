@@ -4,7 +4,7 @@ CREATE DATABASE garage_doors;
 DROP USER IF EXISTS 'garageUser'@'localhost';
 CREATE USER 'garageUser'@'localhost' IDENTIFIED BY 'garageDoorAPI';
 
-GRANT ALL PRIVILEGES ON classics.* to 'garageUser'@'localhost';
+GRANT ALL PRIVILEGES ON garage_doors.* to 'garageUser'@'localhost';
 FLUSH PRIVILEGES;
 
 USE garage_doors;

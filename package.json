@@ -21,12 +21,15 @@
   },
   "homepage": "https://github.com/katskurka/shorefit-api#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mysql2": "^2.3.0",
     "pug": "^3.0.2",
-    "sequelize": "^6.6.5"
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "eslint": "^7.32.0",
     "nodemon": "^2.0.13",
     "pug-lint": "^2.6.0"

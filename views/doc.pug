@@ -6,93 +6,64 @@ html
     h1 Garage Door API Documentation 
     p A list of the available routes for this API and their function
     hr
-    h2 GET '/models'
-    p This GET route will return a list of all available door models
-    p Route: http://localhost:1337/models
+    h2 GET '/doors'
+    p This GET route will return a list of all available garage doors
+    p Route: http://localhost:1337/doors
     p Expected Output:
       div
       pre
       | [{
       |   id: 1
-      |   model: Advantage Estate
-      |   style: Carriage House
-      |   r-value: 7
-      |   image: Image of Door
+      |   doorModel: Advantage
+      |   doorStyle: Raised Panel
+      |   doorMaterial: Steel
+      |   rValue: 7
+      |   costMeter: $$
       | }]
     hr
-    h2 GET '/models/:id'
-    p This GET route will return a model by id
-    p Route: http://localhost:1337/models/:id
+    h2 GET '/doors/:searchTerm'
+    p This GET route will return a model matching a search string
+    p Route: http://localhost:1337/doors/:searchTerm
     p Expected Output:
       div
       pre
       | [{
       |   id: 1
-      |   model: Advantage Estate
-      |   style: Carriage House
-      |   r-value: 7
-      |   material: Steel
-      |   image: Image of Door
+      |   doorModel: Advantage
+      |   doorStyle: Raised Panel
+      |   doorMaterial: Steel
+      |   rValue: 7
+      |   costMeter: $$
       | }]
     hr
-    h2 GET '/models/:material'
-    p This GET route will select models based on desired material
-    p Route: http://localhost:1337/models/:material
-    p Expected Output:
-      div
-      pre
-      | [{
-      |   id: 1
-      |   model: Advantage Estate
-      |   style: Carriage House
-      |   r-value: 7
-      |   material: Steel
-      |   image: Image of Door
-      | }]
-    hr
-    h2 GET '/models/:style'
-    p This GET route will select models based on desired door style
-    p Route: http://localhost:1337/models/:style
-    p Expected Output:
-      div
-      pre
-      | [{
-      |   id: 1
-      |   model: Advantage Estate
-      |   style: Carriage House
-      |   r-value: 7
-      |   material: Steel
-      |   image: Image of Door
-      | }]
-    hr
-    h2 POST '/models/:material'
+    h2 POST '/models'
     p This POST route will allow a user to submit a garage door model
     p Route: http://localhost:1337/models
     p Headers: content-type - application/json 
     p Body
       pre
       | [{
-      |   "model": "Lancaster",
-      |   "style": "Overlay Carriage House",
-      |   "r-value":7,  
-      |   "material": "Vinyl",
-      |   "image": "Image of Door"       
+      |   "doorModel": "Lancaster"
+      |   "doorStyle": "Barn"
+      |   "doorMaterial": "Vinyl"
+      |   "rValue": "7"  
+      |   "costMeter": "$$$"     
       | }]
     p Expected Output:
       div
       pre
       |[{
-      |   id: 2
-      |   model: Lancaster
-      |   style: Overlay Carriage House
-      |   r-value: 7
-      |   material: Vinyl
-      |   image: Image of Door
+      |   id: 7
+      |   doorModel: Lancaster
+      |   doorStyle: Barn
+      |   doorMaterial: Vinyl
+      |   rValue: 7
+      |   costMeter: $$$
       | }]
     hr
-    h2 DELETE '/model/:id'
+    h2 DELETE '/doors/:id'
     p Allows user to delete a door model by id
     p Route: http://localhost:1337/models/:id
     p Expected Output:
-    p "You have successfully removed the model associated with id: 1"
+    p "Model has been removed"
 
